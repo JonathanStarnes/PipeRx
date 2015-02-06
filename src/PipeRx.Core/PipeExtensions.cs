@@ -15,14 +15,14 @@ namespace PipeRx.Core
 
         public static IObservable<TOut> Pipe<TIn, TOut>(this IObservable<TIn> inlet, Action<IObserver<TOut>, TIn> segment)
         {
-            var replay = new ReplaySubject<TOut>();
-            inlet.Subscribe((s) => segment(replay, s));
-            return replay;
+            var outlet = new Subject<TOut>();
+            inlet.Subscribe((s) => segment(outlet, s));
+            return outlet;
         }
 
         public static IObservable<T> Filter<T>(this IObservable<T> inlet, Predicate<T> filter)
         {
-            var outlet = new ReplaySubject<T>();
+            var outlet = new Subject<T>();
 
             inlet.Subscribe((value) =>
             {
@@ -37,7 +37,7 @@ namespace PipeRx.Core
 
         public static IObservable<T> Filter<T>(this IObservable<T> inlet, IEnumerable<Predicate<T>> filters)
         {
-            var outlet = new ReplaySubject<T>();
+            var outlet = new Subject<T>();
 
             inlet.Subscribe((value) =>
             {

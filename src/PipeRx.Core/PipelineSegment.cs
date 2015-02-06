@@ -7,7 +7,7 @@ namespace PipeRx.Core
 {
     public abstract class PipelineSegment<TIn, TOut> : ISubject<TIn, TOut>
     {
-        readonly ReplaySubject<TOut> _outlet = new ReplaySubject<TOut>();
+        readonly Subject<TOut> _outlet = new Subject<TOut>();
 
         protected abstract IEnumerable<TOut> ProcessInput(TIn value);
 
