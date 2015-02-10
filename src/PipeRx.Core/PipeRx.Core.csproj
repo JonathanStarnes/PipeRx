@@ -51,9 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PipeExtensions.cs" />
+    <Compile Include="FanoutExtension.cs" />
+    <Compile Include="FilterExtension.cs" />
+    <Compile Include="PipeExtension.cs" />
     <Compile Include="PipelineSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinkExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

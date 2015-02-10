@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FanoutTest.cs" />
     <Compile Include="FilterTest.cs" />
     <Compile Include="PipeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
